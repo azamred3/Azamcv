@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azam - Programmer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.6.6/css/flag-icons.min.css">
+    <!-- استدعاء خط Pacifico من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* ===== General Styles ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #0a0a0a, #1e1e3a, #0a0a0a); /* خلفية متدرجة للصفحة بأكملها */
+            color: #e0e0e0;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background-color: rgba(13, 27, 42, 0.9); /* شفافية للتناسق مع الخلفية */
+            width: 100%;
+            position: fixed;
+            z-index: 999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 200px;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #64b5f6; /* اللون الأزرق */
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 2.5em; /* حجم أكبر */
+        }
+
+        .navigation a {
+            color: #64b5f6;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding-left: 30px;
+        }
+
+        .navigation a:hover {
+            color: #1e88e5;
+        }
+
+        /* ===== Language Selector ===== */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .language-selector select {
+            padding: 8px 12px;
+            font-size: 1em;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+            border: 1px solid #64b5f6;
+            cursor: pointer;
+            appearance: none; /* إزالة المظهر الافتراضي */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2364b5f6"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            padding-right: 30px;
+        }
+
+        .language-selector select option {
+            background-color: #1e1e3a;
+            color: #e0e0e0;
+        }
+
+        /* ===== Main Section ===== */
+        .main {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: transparent; /* إزالة الخلفية المنفصلة */
+        }
+
+        .main h2 {
+            color: #a8b2d1;
+            font-size: 1.2em; /* حجم أصغر */
+            font-weight: 500;
+        }
+
+        .main h2 span {
+            color: #64b5f6; /* اللون الأزرق */
+            font-size: 4em; /* حجم أكبر */
+            font-weight: 600;
+        }
+
+        .main h3 {
+            color: #a8b2d1;
+            font-size: 1.5em; /* حجم أصغر */
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .main-btn {
+            color: white;
+            background-color: #64b5f6;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            display: inline-block;
+            padding: 0.9375em 2.1875em;
+            letter-spacing: 1px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            transition: 0.7s ease;
+        }
+
+        .main-btn:hover {
+            background-color: #1e88e5;
+            transform: scale(1.1);
+        }
+
+        .social-icons a {
+            color: #64b5f6;
+            font-size: 1.7em;
+            padding-right: 30px;
+        }
+
+        /* ===== Sections ===== */
+        section {
+            padding: 100px 200px;
+            background: transparent; /* إزالة الخلفية المنفصلة */
+        }
+
+        .title {
+            display: flex;
+            justify-content: center;
+            color: #64b5f6;
+            font-size: 2.2em;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+            width: 21.25em;
+            box-shadow: 0 5px 25px rgba(1, 1, 1, 0.3);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 15px;
+            transition: 0.7s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2); /* تغيير الخلفية عند التمرير */
+            box-shadow: 0 8px 30px rgba(1, 1, 1, 0.5);
+        }
+
+        .icon {
+            color: #64b5f6;
+            font-size: 8em;
+            text-align: center;
+        }
+
+        .info {
+            text-align: center;
+        }
+
+        .info h3 {
+            color: #64b5f6;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin: 10px;
+        }
+
+        /* ===== CV Section ===== */
+        .cv-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .cv-content h3 {
+            color: #64b5f6;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .cv-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* ===== Personal Info Section ===== */
+        .personal-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .personal-info .details {
+            max-width: 500px;
+        }
+
+        .personal-info h2 {
+            color: #64b5f6;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .personal-info p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .personal-info img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 5px solid #64b5f6;
+            object-position: top; /* لجعل الوجه يظهر بالكامل */
+        }
+
+        /* ===== Modal Styles ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* ===== Media Queries ===== */
+        @media (max-width: 1023px) {
+            header {
+                padding: 12px 20px;
+            }
+
+            .navigation a {
+                padding-left: 10px;
+            }
+
+            .title {
+                font-size: 1.8em;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+        }
+
+        @media (max-width: 641px) {
+            body {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 300px) {
+            body {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== Language Selector ===== -->
+    <div class="language-selector">
+        <select id="language-select">
+            <option value="en" data-flag="🇬🇧">English</option>
+            <option value="ar" data-flag="🇸🇦">العربية </option>
+        </select>
+    </div>
+
+    <!-- ===== Header ===== -->
+    <header>
+   
+        <nav class="navigation">
+            <a href="#about"><i class="fa-solid fa-user"></i><span data-translate="about">About</span></a>
+            <a href="#services"><i class="fas fa-code"></i><span data-translate="services">Programming languages</span></a>
+            <a href="#contact"><i class="fa-solid fa-phone-volume"></i><span data-translate="contact">Contact Info</span></a>
+        </nav>
+    </header>
+
+    <!-- ===== Main Section ===== -->
+    <section class="main">
+        <div>
+            <h2><span data-translate="hello">Hello</span>, <span data-translate="im">I'm</span><br><span data-translate="NAME">AZAM SULEIMAN</span></h2>
+         
+            <a href="#about" class="main-btn" data-translate="viewWork">View My Work</a>
+            <div class="social-icons">
+                <!-- Social icons here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== About Section ===== -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="title" data-translate="aboutMe">About Me</h2>
+            <div class="personal-info">
+                <div class="details">
+                    <h2>AZAM</h2>
+                    <p data-translate="aboutText1">
+                        I am a recent graduate with a degree in Computer Science, specializing in web development. I have experience in building responsive and user-friendly websites using modern technologies such as HTML, CSS, JavaScript, and various frameworks. Currently, I am expanding my skill set to include mobile application development, with the goal of becoming a full-stack developer capable of creating both web and mobile applications.
+                    </p>
+                    <p data-translate="aboutText2">
+                        My passion for coding drives me to continuously learn and improve my skills. I am always looking for new challenges and opportunities to grow as a developer.
+                    </p>
+                </div>
+                <img src="img/ME.jpg" alt="Azam's Photo"> <!-- استبدل الرابط بصورة شخصية -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Services Section ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="title" data-translate="programmingLanguages">Programming languages</h2>
+            <div class="content">
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="info">
+                        <h3>JAVA</h3>
+                        <p data-translate="javaText">I have intermediate experience in Java, where I have worked on developing applications and understanding core concepts like object-oriented programming (OOP), data structures, and basic algorithms. I am familiar with frameworks like Spring and have some experience in writing clean and maintainable code. I am continuously improving my skills to build more efficient and scalable applications.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Swift, Kotlin</h3>
+                        <p data-translate="swiftKotlinText">I have basic knowledge of Swift and Kotlin and am working on improving my skills in mobile application development.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="info">
+                        <h3>C++</h3>
+                        <p data-translate="cppText">I learned C++ for game development and to understand low-level programming concepts.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="info">
+                        <h3>SQL,PHP</h3>
+                        <p data-translate="sql">I have strong expertise in SQL, including database design, query optimization, and data management using tools like MySQL and PostgreSQL. I can create secure, scalable databases and generate accurate reports for decision-making</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="info">
+                        <h3>HTML, CSS</h3>
+                        <p data-translate="htmlCssText">I use HTML and CSS to create responsive and visually appealing websites.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Projects Section ===== -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="title" data-translate="contactInfo">Contact Info</h2>
+            <div class="content">
+                <div class="card" onclick="window.location.href='tel:+966503337182'">
+                    <div class="icon">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <div class="info">
+                        <h3 data-translate="phone">Phone</h3>
+                    </div>
+                </div>
+                <div class="card" onclick="window.location.href='mailto:azamred3@gmail.com'">
+                    <div class="icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="info">
+                        <h3 data-translate="email">Email</h3>
+                    </div>
+                </div>
+
+                <div class="card" onclick="window.open('https://www.linkedin.com/in/azam-%E2%80%8Fal-muayyi-7607602ba', '_blank')">
+                    <div class="icon">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+                    <div class="info">
+                        <h3>LinkedIn</h3>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openModal()">
+                    <div class="icon">
+                        <i class="fa-regular fa-file-pdf"></i> <!-- أيقونة الـ CV -->
+                    </div>
+                    <div class="info">
+                        <h3 data-translate="cv">CV</h3>
+                        <p data-translate="viewCV">View My CV</p>
+                    </div>
+                </div>
+            </div>
+            <div id="cv-content" class="cv-content">
+                <h3 data-translate="cvName">عزام بن سليمان المعبي</h3>
+                <p><strong data-translate="cvTitle">برمجة وتطوير الويب</strong></p>
+                <p><strong data-translate="cvContact">معلومات التواصل:</strong> 0503337182 | aa9az233@gmail.com | القصيم- بريدة</p>
+                <p><strong data-translate="cvSkills">المهارات:</strong></p>
+                <ul>
+                    <li data-translate="skill1">السرعة في جمع البيانات وإدخالها.</li>
+                    <li data-translate="skill2">إجادة استخدام الحاسب الآلي.</li>
+                    <li data-translate="skill3">مهارات التواصل.</li>
+                    <li data-translate="skill4">إجادة العمل ضمن الفريق.</li>
+                    <li data-translate="skill5">سرعة إنجاز المهام.</li>
+                </ul>
+                <p><strong data-translate="cvLanguages">اللغات:</strong></p>
+                <ul>
+                    <li data-translate="lang1">العربية (لغة الأم).</li>
+                    <li data-translate="lang2">الإنجليزية (متوسطة).</li>
+                </ul>
+                <p><strong data-translate="cvEducation">التعليم:</strong></p>
+                <ul>
+                    <li data-translate="education1">خريج جامعي، تخصص: برمجة، المعدل: 3.95</li>
+                </ul>
+                <p><strong data-translate="cvExperience">الخبرات:</strong></p>
+                <ul>
+                    <li data-translate="experience1">العمل في محل زاوية العنى للمطارخ لمدة 8 شهور.</li>
+                </ul>
+                <p><strong data-translate="cvCourses">الدورات:</strong></p>
+                <ul>
+                    <li data-translate="course1">دورة Cisco.</li>
+                    <li data-translate="course2">دورة PowerPoint.</li>
+                    <li data-translate="course3">دورة Unreal Engine.</li>
+                    <li data-translate="course4">دورة البرمجة وتطوير الويب.</li>
+                    <li data-translate="course5">دورة Excel.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Contact Section ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="title" data-translate="contact">Contact</h2>
+            <div class="content">
+                <p data-translate="reachMe">You can reach me at: <a href="mailto:azam@example.com">azam@example.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Modal ===== -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" src="img/CVNEW.jpg"> <!-- استبدل image.png بمسار الصورة الفعلي -->
+    </div>
+
+    <script>
+        // بيانات الترجمة
+        const translations = {
+            en: {
+ 
+                about: "About",
+                sql:"I have strong SQL skills and use PHP to connect to databases, execute queries, and build dynamic web apps.",
+                services: "Programming languages",
+                contact: "Contact Info",
+                hello: "Hello",
+                im: "I'm",
+                programmer: "Programmer",
+                practicing: "I am practicing for my graduation project",
+                viewWork: "View My Work",
+                aboutMe: "About Me",
+                aboutText1: "I am a recent graduate with a degree in Computer Science, specializing in web development. I have experience in building responsive and user-friendly websites using modern technologies such as HTML, CSS, JavaScript, and various frameworks. Currently, I am expanding my skill set to include mobile application development, with the goal of becoming a full-stack developer capable of creating both web and mobile applications.",
+                aboutText2: "My passion for coding drives me to continuously learn and improve my skills. I am always looking for new challenges and opportunities to grow as a developer.",
+                programmingLanguages: "Programming languages",
+                javaText: "I have intermediate experience in Java, including OOP and developing scalable applications.",
+                swiftKotlinText: "I have basic knowledge of Swift and Kotlin and am working on improving my skills in mobile application development..",
+                cppText: "I learned C++ for game development and to understand low-level programming concepts.",
+                htmlCssText: "I use HTML and CSS to create responsive and visually appealing websites.",
+                contactInfo: "Contact Info",
+                phone: "Phone",
+                email: "Email",
+                cv: "CV",
+                viewCV: "View My CV",
+                cvName: "Azam Al-Muayyi",
+                cvTitle: "Web Development",
+                cvContact: "Contact Info",
+                cvSkills: "Skills",
+                skill1: "Fast data collection and entry.",
+                skill2: "Proficient in computer usage.",
+                skill3: "Communication skills.",
+                skill4: "Teamwork skills.",
+                skill5: "Fast task completion.",
+                cvLanguages: "Languages",
+                lang1: "Arabic (Native).",
+                lang2: "English (Intermediate).",
+                cvEducation: "Education",
+                education1: "University graduate, major: Programming, GPA: 3.95",
+                cvExperience: "Experience",
+                experience1: "Worked at a local store for 8 months.",
+                cvCourses: "Courses",
+                course1: "Cisco course.",
+                course2: "PowerPoint course.",
+                course3: "Unreal Engine course.",
+                course4: "Web development course.",
+                course5: "Excel course.",
+                contact: "Contact",
+                NAME:"AZAM SULEIMN",
+                reachMe: "You can reach me at:"
+            },
+            ar: {
+                
+                NAME:"عزام سليمان",
+                about: "عني",
+                services: "لغات البرمجة",
+                sql:"لدي مهارات قوية في SQL وأستخدم PHP للاتصال بقواعد البيانات، تنفيذ الاستعلامات، وبناء تطبيقات ويب ديناميكية.",
+                contact: "معلومات الاتصال",
+                hello: "مرحبًا",
+                im: "أنا",
+                programmer: "مبرمج",
+                practicing: "أنا أتدرب على مشروع تخرجي",
+                viewWork: "عرض أعمالي",
+                aboutMe: "عني",
+                aboutText1: "أنا خريج حديث بدرجة علمية في علوم الكمبيوتر، متخصص في تطوير الويب. لدي خبرة في بناء مواقع ويب سريعة الاستجابة وسهلة الاستخدام باستخدام تقنيات حديثة مثل HTML وCSS وJavaScript وإطارات عمل مختلفة. حاليًا، أقوم بتوسيع مهاراتي لتشمل تطوير تطبيقات الهواتف الذكية، بهدف أن أصبح مطورًا كامل القدرة على إنشاء تطبيقات الويب والهواتف.",
+                aboutText2: "شغفي بالبرمجة يدفعني للتعلم المستمر وتحسين مهاراتي. أنا أبحث دائمًا عن تحديات جديدة وفرص للنمو كمطور.",
+                programmingLanguages: "لغات البرمجة",
+                javaText: "لدي خبرة متوسطة في Java، بما في ذلك OOP وتطوير التطبيقات القابلة للتطوير.",
+                cppText: "لقد تعلمت C++ لتطوير الألعاب وفهم مفاهيم البرمجة منخفضة المستوى.",
+                htmlCssText: "أستخدم HTML وCSS لإنشاء مواقع ويب سريعة الاستجابة وجذابة بصريًا.",
+                swiftKotlinText:"لدي أساسيات في Swift وKotlin أعمل على تطوير مهاراتي في بناء تطبيقات الهاتف المحمول.",
+                contactInfo: "معلومات الاتصال",
+                phone: "الهاتف",
+                email: "البريد الإلكتروني",
+                cv: "السيرة الذاتية",
+                viewCV: "عرض سيرتي الذاتية",
+                cvName: "عزام بن سليمان المعبي",
+                cvTitle: "برمجة وتطوير الويب",
+                cvContact: "معلومات التواصل",
+                cvSkills: "المهارات",
+                skill1: "السرعة في جمع البيانات وإدخالها.",
+                skill2: "إجادة استخدام الحاسب الآلي.",
+                skill3: "مهارات التواصل.",
+                skill4: "إجادة العمل ضمن الفريق.",
+                skill5: "سرعة إنجاز المهام.",
+                cvLanguages: "اللغات",
+                lang1: "العربية (لغة الأم).",
+                lang2: "الإنجليزية (متوسطة).",
+                cvEducation: "التعليم",
+                education1: "خريج جامعي، تخصص: برمجة، المعدل: 3.95",
+                cvExperience: "الخبرات",
+                experience1: "العمل في محل زاوية العنى للمطارخ لمدة 8 شهور.",
+                cvCourses: "الدورات",
+                course1: "دورة Cisco.",
+                course2: "دورة PowerPoint.",
+                course3: "دورة Unreal Engine.",
+                course4: "دورة البرمجة وتطوير الويب.",
+                course5: "دورة Excel.",
+                contact: "الاتصال",
+
+                reachMe: "يمكنك التواصل معي على:"
+            }
+        };
+
+        // العناصر التي تحتاج إلى ترجمة
+        const translatableElements = document.querySelectorAll("[data-translate]");
+
+        // تحديث المحتوى بناءً على اللغة المختارة
+        function updateContent(lang) {
+            translatableElements.forEach(element => {
+                const key = element.getAttribute("data-translate");
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // تغيير اللغة عند اختيارها من القائمة
+        const languageSelect = document.getElementById("language-select");
+        languageSelect.addEventListener("change", (event) => {
+            const selectedLang = event.target.value;
+            updateContent(selectedLang);
+        });
+
+        // تعيين اللغة الافتراضية عند تحميل الصفحة
+        document.addEventListener("DOMContentLoaded", () => {
+            const defaultLang = "en"; // اللغة الافتراضية
+            updateContent(defaultLang);
+        });
+
+        // فتح النافذة المنبثقة
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        // إغلاق النافذة المنبثقة
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        // إغلاق النافذة عند النقر خارج الصورة
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
